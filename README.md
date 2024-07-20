@@ -77,6 +77,7 @@ SQL injection is one of the most common web hacking techniques that might destro
 **Execution:** The database executes the malicious SQL query, leading to unintended behavior.
 
 SELECT UserId, Name, Password FROM Users WHERE UserId = 105 or 1=1;(always true and executed)
+
 SELECT * FROM Users WHERE Name ="" or ""="" AND Pass ="" or ""=""; (always true and executed)
 
 **Prevention Techniques :**
@@ -85,7 +86,9 @@ SELECT * FROM Users WHERE Name ="" or ""="" AND Pass ="" or ""=""; (always true 
 **2.** Validate and sanitize user input to ensure it conforms to expected formats and does not contain malicious characters. This can involve:
    
 **Whitelisting:** Allowing only expected characters.
+
 **Blacklisting:** Blocking known dangerous characters.
+
 **Length checks:** Ensuring input does not exceed expected lengths.
 
 **3.** Use parameterized queries to separate SQL code from data. This ensures that user input is treated as data, not executable code.
