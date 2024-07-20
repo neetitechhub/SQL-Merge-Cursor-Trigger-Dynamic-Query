@@ -30,3 +30,13 @@ Optionally, we can delete records from TargetTable if they are no longer present
 5. Concurrency Issues: Locking-> Cursors can hold locks on rows for extended periods, which may lead to blocking and deadlocking issues, affecting the performance and concurrency of the database.
 6. Scalability: Not Scalable -> As the size of the data increases, cursor-based operations become less efficient and scalable. Set-based operations are generally more scalable for large datasets.
 7. Maintenance: Difficult to Debug-> Debugging cursor-based operations can be more challenging compared to set-based operations due to the complexity of the code and the need to track the cursor state.
+
+**DYNAMIC QUERY**
+
+Dynamic SQL allows you to construct and execute SQL statements dynamically at runtime. This can be particularly useful when you need to build SQL queries based on variable inputs or conditions. However, it's important to be aware of the security risks, such as SQL injection, and take appropriate precautions.
+
+Use Case : Suppose we have a table Employees, and we want to build a query that can filter results based on optional parameters for Department and Salary.
+
+**Security Considerations**
+Parameterization: Always use parameterized queries (sp_executesql) to prevent SQL injection.
+Validation: Validate and sanitize input parameters before using them in the query.
