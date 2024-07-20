@@ -40,3 +40,28 @@ Use Case : Suppose we have a table Employees, and we want to build a query that 
 **Security Considerations**
 Parameterization: Always use parameterized queries (sp_executesql) to prevent SQL injection.
 Validation: Validate and sanitize input parameters before using them in the query.
+
+**TRIGGER :**
+
+A trigger in SQL is a database object that is automatically executed or fired when certain events occur in the database. Triggers can be used to enforce business rules, maintain audit trails, and ensure data integrity.
+
+**CONS: **
+1. It can be performance overhead 
+2. Complex debugging scenarios.
+3. Documentation need (Tough to identify for new developer to identify what happening in background)
+
+**TYPES OF TRIGGERS :**
+
+**1. DML Triggers:** Fired when DML events performed such as INSERT, UPDATE, and DELETE.
+		AFTER Triggers: Fired after the DML event.
+		INSTEAD OF Triggers: Fired in place of the DML event.
+
+**2. DDL Triggers:** These are fired by Data Definition Language (DDL) events such as CREATE, ALTER, and DROP.
+**3. Logon Triggers:** These are fired in response to LOGON events, typically used for auditing and controlling logon activities.
+
+**MAGIC TABLES :** "MAGIC TABLES" refer to the special tables named inserted and deleted that are used within the context of DML triggers. These tables provide a way to access the rows affected by INSERT, UPDATE, and DELETE operations within the trigger.
+
+**INSERTED TABLE:** This table holds the new rows that are being inserted during an INSERT operation or the new values of the rows being updated during an UPDATE operation.
+**DELETED TABLE:** This table holds the old values of the rows being deleted during a DELETE operation or the old values of the rows being updated during an UPDATE operation.
+
+**Note : Magic tables only accessible inside trigger (no where else)**
