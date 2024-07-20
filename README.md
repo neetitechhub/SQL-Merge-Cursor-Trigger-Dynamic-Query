@@ -1,4 +1,4 @@
-# SQL-Merge-Cursor-Trigger-Dynamic-Query
+# SQL-Merge-Cursor-Trigger-Dynamic-Query-SQLInjection
 
 **MERGE**
 
@@ -45,7 +45,7 @@ Validation: Validate and sanitize input parameters before using them in the quer
 
 A trigger in SQL is a database object that is automatically executed or fired when certain events occur in the database. Triggers can be used to enforce business rules, maintain audit trails, and ensure data integrity.
 
-**CONS: **
+**CONS:**
 1. It can be performance overhead 
 2. Complex debugging scenarios.
 3. Documentation need (Tough to identify for new developer to identify what happening in background)
@@ -65,3 +65,27 @@ A trigger in SQL is a database object that is automatically executed or fired wh
 **DELETED TABLE:** This table holds the old values of the rows being deleted during a DELETE operation or the old values of the rows being updated during an UPDATE operation.
 
 **Note : Magic tables only accessible inside trigger (no where else)**
+
+**SQL injection :**
+
+SQL injection is one of the most common web hacking techniques that might destroy your database by placing malicious code in SQL statements, via web page input.
+
+**How SQL Injection Works :**
+
+**User Input:** An attacker provides malicious SQL input through a user input field.
+**Injection Point:** The application uses this input to build an SQL query without properly sanitizing or validating the input.
+**Execution:** The database executes the malicious SQL query, leading to unintended behavior.
+
+SELECT UserId, Name, Password FROM Users WHERE UserId = 105 or 1=1;(always true and executed)
+SELECT * FROM Users WHERE Name ="" or ""="" AND Pass ="" or ""=""; (always true and executed)
+
+**Prevention Techniques :**
+**1.** Use stored procedures with parameters to execute queries. This encapsulates SQL code within the database.
+
+**2.** Validate and sanitize user input to ensure it conforms to expected formats and does not contain malicious characters. This can involve:
+   
+**Whitelisting:** Allowing only expected characters.
+**Blacklisting:** Blocking known dangerous characters.
+**Length checks:** Ensuring input does not exceed expected lengths.
+
+**3.** Use parameterized queries to separate SQL code from data. This ensures that user input is treated as data, not executable code.
